@@ -122,6 +122,7 @@ const defaultBang = bangs.find((b) => b.t === LS_DEFAULT_BANG);
 function getBangredirectUrl() {
   const url = new URL(window.location.href);
   const query = url.searchParams.get("q")?.trim() ?? "";
+  
   if (!query) {
     noSearchDefaultPageRender();
     return null;
@@ -131,6 +132,10 @@ function getBangredirectUrl() {
 
   const bangCandidate = match?.[1]?.toLowerCase();
   const selectedBang = bangs.find((b) => b.t === bangCandidate) ?? defaultBang;
+
+  // Handle special cases first
+  const specialUrl = specialCases(query);
+  if (specialUrl) return specialUrl;
 
   // Remove the first bang from the query
   const cleanQuery = query.replace(/!\S+\s*/i, "").trim();
@@ -144,10 +149,6 @@ function getBangredirectUrl() {
   );
   if (!searchUrl) return null;
   
-  if (specialCases(query)) return null;
-
-
-
   return searchUrl;
 }
 
@@ -185,8 +186,9 @@ function doRedirect() {
   window.location.replace(searchUrl);
 }
 
-function specialCases(query:string){
-  if (query == '!yt') return 'https://youtube.com'
+function specialCases(query: string): string | null {
+  if (query === '!yt') return 'https://youtube.com';
+  return null;
 }
 
 
