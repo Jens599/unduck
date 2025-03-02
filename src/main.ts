@@ -143,13 +143,17 @@ function getBangredirectUrl() {
     encodeURIComponent(cleanQuery).replace(/%2F/g, "/")
   );
   if (!searchUrl) return null;
+  
+  if (specialCases(query)) return null;
+
+
 
   return searchUrl;
 }
 
 function feelingLuckyRedirect(query:string) {
   const cleanQuery = query.replace("!", "").trim();
-  
+
   return `https://duckduckgo.com/?q=!ducky+${encodeURIComponent(cleanQuery)}`;
 }
 
@@ -180,5 +184,10 @@ function doRedirect() {
   if (!searchUrl) return;
   window.location.replace(searchUrl);
 }
+
+function specialCases(query:string){
+  if (query == '!yt') return 'https://youtube.com'
+}
+
 
 doRedirect();
