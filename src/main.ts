@@ -167,6 +167,11 @@ function doRedirect() {
     return null;
   }
   
+  if (query === "!") {
+    window.location.replace(bangs.find((b) => b.t === LS_DEFAULT_BANG)?.u.replace("{{{s}}}", "") ?? "https://duckduckgo.com");
+    return;
+  }
+
   const type = /!(?:\s|$)/i.test(query);
   
   if (type) {
