@@ -133,9 +133,9 @@ function getBangredirectUrl() {
   const bangCandidate = match?.[1]?.toLowerCase();
   const selectedBang = bangs.find((b) => b.t === bangCandidate) ?? defaultBang;
 
-  // Handle special cases first
-  const specialUrl = specialCases(query);
-  if (specialUrl) return specialUrl;
+  if (query == selectedBang?.t) return selectedBang.d;
+
+
 
   // Remove the first bang from the query
   const cleanQuery = query.replace(/!\S+\s*/i, "").trim();
@@ -190,11 +190,5 @@ function doRedirect() {
   if (!searchUrl) return;
   window.location.replace(searchUrl);
 }
-
-function specialCases(query: string): string | null {
-  if (query === '!yt') return 'https://youtube.com';
-  return null;
-}
-
 
 doRedirect();

@@ -109961,5 +109961,12 @@ export const bangs = [
       u: 'https://e-hentai.org/?f_search=language:english$ {{{s}}}',
       c: 'hentai',
       sc: 'hentai',
+    },{
+      s: 'FileCR',
+      d: 'filecr.com',
+      t: 'fcr',
+      u: 'https://filecr.com/search/?q={{{s}}}',
+      c: 'Tech',
+      sc: 'Downloads (apps)',
     }
   ]
