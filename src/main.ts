@@ -133,9 +133,11 @@ function getBangredirectUrl() {
   const bangCandidate = match?.[1]?.toLowerCase();
   const selectedBang = bangs.find((b) => b.t === bangCandidate) ?? defaultBang;
 
-  if (query == `!${selectedBang?.t}`) return selectedBang?.d ?? "https://duckduckgo.com";
-
-
+  if (query.toLowerCase().replace(`!`, "").trim() == selectedBang?.t.toLowerCase() ) {
+    // Add URL protocol check and prefix if needed
+    const defaultUrl = selectedBang?.d ?? "https://duckduckgo.com";
+    return defaultUrl.startsWith('http') ? defaultUrl : `https://${defaultUrl}`;
+  }
 
   // Remove the first bang from the query
   const cleanQuery = query.replace(/!\S+\s*/i, "").trim();
@@ -168,7 +170,7 @@ function doRedirect() {
   }
   
   if (query === "!") {
-    window.location.replace(bangs.find((b) => b.t === LS_DEFAULT_BANG)?.u.replace("{{{s}}}", "") ?? "https://duckduckgo.com");
+    window.location.replace(bangs.find((b) => b.t === LS_DEFAULT_BANG)?.d ?? "https://duckduckgo.com");
     return;
   }
 
@@ -177,12 +179,10 @@ function doRedirect() {
   if (type) {
     const searchUrl = feelingLuckyRedirect(query);
     if (!searchUrl) return;
-        
     const link = document.createElement('a');
     link.href = searchUrl;
     link.rel = 'noreferrer noopener';
     link.click();
-    
     return;
   }
   
