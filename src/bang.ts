@@ -69764,7 +69764,7 @@ export const bangs = [
     {
       s: "Perplexity AI",
       d: "perplexity.ai",
-      t: "perplexity",
+      t: "p",
       u: "https://perplexity.ai/?q={{{s}}}",
       c: "Online Services",
       sc: "Tools"
