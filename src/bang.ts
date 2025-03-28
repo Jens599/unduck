@@ -109972,7 +109972,7 @@ export const bangs = [
       s: 'AnimeIDHentai',
       d: 'https://animeidhentai.com',
       t: 'id',
-      u: 'https://animeidhentai.com/?s={{q}}',
+      u: 'https://animeidhentai.com/?s={{{s}}}',
       c: 'Hentai Anime',
       sc: 'Hentai Anime',
     }
