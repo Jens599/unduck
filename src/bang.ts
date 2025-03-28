@@ -20929,7 +20929,7 @@ export const bangs = [
     {
       s: "Dragen en Voeden Forum",
       d: "forum.dragen-en-voeden.nl",
-      t: "denv",
+      t: "den",
       u: "https://forum.dragen-en-voeden.nl/search.php?keywords={{{s}}}&terms=all&author=&sc=1&sf=all&sr=posts&sk=t&sd=d&st=0&ch=300&t=0&submit=Zoek",
       c: "Entertainment",
       sc: "Forum"
@@ -109968,5 +109968,12 @@ export const bangs = [
       u: 'https://filecr.com/search/?q={{{s}}}',
       c: 'Tech',
       sc: 'Downloads (apps)',
+    },{
+      s: 'AnimeIDHentai',
+      d: 'https://animeidhentai.com',
+      t: 'id',
+      u: 'https://animeidhentai.com/?s={{q}}',
+      c: 'Hentai Anime',
+      sc: 'Hentai Anime',
     }
   ]
