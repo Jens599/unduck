@@ -8247,7 +8247,7 @@ export const bangs = [
     {
       s: "Bing",
       d: "bing.com",
-      t: "b",
+      t: "bing",
       u: "https://bing.com/search?q={{{s}}}"
     },
     {
@@ -11463,7 +11463,7 @@ export const bangs = [
     {
       s: "Brave Search",
       d: "search.brave.com",
-      t: "brave",
+      t: "b",
       u: "https://search.brave.com/search?q={{{s}}}",
       c: "Online Services",
       sc: "Google"
